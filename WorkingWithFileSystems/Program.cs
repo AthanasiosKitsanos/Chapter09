@@ -74,6 +74,51 @@ namespace WorkingWithFileSystems
             Console.WriteLine("Deleting it...");
             Delete(newFolder, recursive: true);
             Console.WriteLine($"Does it exists? {Directory.Exists(newFolder)}");
+
+            // Managing Files
+            SectionTitle("Managing Files");
+
+            //Define a diractory path to output files starting in the user's folder.
+            string dir = Combine(GetFolderPath(SpecialFolder.Personal), "OutputFiles");
+            CreateDirectory(dir);
+
+            // Define file paths.
+            string textFile = Combine(dir, "Dummy.txt");
+            string backupFile = Combine(dir, "Dummy.bak");
+            Console.WriteLine($"Working with: {textFile}");
+            Console.WriteLine($"Does it exists? {File.Exists(textFile)}");
+
+            // Creating a new file and write a line to it.
+            StreamWriter textWriter = new StreamWriter(textFile);
+            textWriter.Write("Hello, C#");
+            textWriter.Close(); // Close file and release resourses.
+            Console.WriteLine($"Does it exist? {File.Exists(textFile)}");
+
+            // Copy the file and overwrite if it exists.
+            File.Copy(sourceFileName: textFile, destFileName: backupFile, overwrite: true);
+            Console.WriteLine($"Does backup file exist? {File.Exists(backupFile)}");
+            Console.WriteLine("Confirm the files exists and then press any key");
+            Console.ReadKey(intercept: true);
+
+            // Delete the files
+            File.Delete(textFile);
+            Console.WriteLine($"Does it exist? {File.Exists(textFile)}");
+
+            // Read from the file backup.
+            Console.WriteLine($"Reading context of {backupFile}:");
+            StreamReader textReader = File.OpenText(backupFile);
+            Console.WriteLine(textReader.ReadToEnd());
+            textReader.Close();
+
+            // Managing Paths
+            SectionTitle("Managing Paths");
+            Console.WriteLine($"Folder Name: {GetDirectoryName(textFile)}");
+            Console.WriteLine($"File Name: {GetFileName(textFile)}");
+            Console.WriteLine("File Name without Extension: {0}", arg0: GetFileNameWithoutExtension(textFile));
+            Console.WriteLine($"File Extention: {GetExtension(textFile)}");
+            Console.WriteLine($"Random File Name: {GetRandomFileName()}");
+            Console.WriteLine($"Temporary File Name: {GetTempFileName()}");
+
         }
     }
 }
