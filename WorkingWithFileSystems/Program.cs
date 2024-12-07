@@ -35,6 +35,7 @@ namespace WorkingWithFileSystems
             AnsiConsole.Write(table);
             #endregion
 
+            // Managing Drives.
             SectionTitle("Managing Drives");
             Table drives = new();
             drives.AddColumn("[blue]NAME[/]");
@@ -55,6 +56,24 @@ namespace WorkingWithFileSystems
                 }
             }
             AnsiConsole.Write(drives);
+
+            // Managing Directories
+            SectionTitle("Managing Directories");
+            string newFolder = Combine(GetFolderPath(SpecialFolder.Personal), "NewFolder");
+            Console.WriteLine($"Working with: {newFolder}");
+
+            // We mut explicitly say which Exists method to use, because we statically imported both Path and Direvtory.
+            Console.WriteLine($"Does it exist? {Path.Exists(newFolder)}");
+            Console.WriteLine("Creating it...");
+            CreateDirectory(newFolder);
+
+            // Let's use the Directory.Exists method this time.
+            Console.WriteLine($"Does it exist? {Directory.Exists(newFolder)}");
+            Console.WriteLine("Confirm the directory exists and then press any key.");
+            Console.ReadKey(intercept: true);
+            Console.WriteLine("Deleting it...");
+            Delete(newFolder, recursive: true);
+            Console.WriteLine($"Does it exists? {Directory.Exists(newFolder)}");
         }
     }
 }
