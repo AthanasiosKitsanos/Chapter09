@@ -119,6 +119,13 @@ namespace WorkingWithFileSystems
             Console.WriteLine($"Random File Name: {GetRandomFileName()}");
             Console.WriteLine($"Temporary File Name: {GetTempFileName()}");
 
+            // File Info instances
+            SectionTitle("Getting File Inforamtion");
+            FileInfo info = new(backupFile);
+            Console.WriteLine($"{backupFile}:");
+            Console.WriteLine($"-Contains {info.Length} bytes.");
+            Console.WriteLine($"-Last accessed: {info.LastAccessTime}");
+            Console.WriteLine($"-Has read-only set to {info.IsReadOnly}");
         }
     }
 }
