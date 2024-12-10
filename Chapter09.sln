@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithRandomAccess", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithEncoding", "WorkingWithEncoding\WorkingWithEncoding.csproj", "{D99D881A-66AE-44E6-BC3B-BCE5311238FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithSerialization", "WorkingWithSerialization\WorkingWithSerialization.csproj", "{09D71F1F-BE08-44A5-910B-D3087A415D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D99D881A-66AE-44E6-BC3B-BCE5311238FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D99D881A-66AE-44E6-BC3B-BCE5311238FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D99D881A-66AE-44E6-BC3B-BCE5311238FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D71F1F-BE08-44A5-910B-D3087A415D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D71F1F-BE08-44A5-910B-D3087A415D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D71F1F-BE08-44A5-910B-D3087A415D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D71F1F-BE08-44A5-910B-D3087A415D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
